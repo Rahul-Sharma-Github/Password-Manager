@@ -1,3 +1,3 @@
-# password_manager
+# Password Manager App using GetX Microframework
 
-A new Flutter project.
+
