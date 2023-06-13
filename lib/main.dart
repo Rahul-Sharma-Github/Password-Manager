@@ -13,9 +13,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Password Manager',
-      theme: ThemeData(primarySwatch: Colors.amber),
       initialRoute: '/',
-      home: const OnboardScreen(),
+      home: OnboardScreen(),
     );
   }
 }
