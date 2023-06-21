@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:password_manager/app/modules/onboard_module/controller/onboard_controller.dart';
 import 'package:password_manager/app/modules/onboard_module/screens/widgets/intro_2.dart';
 import 'package:password_manager/app/modules/onboard_module/screens/widgets/intro_3.dart';
@@ -18,58 +19,87 @@ class OnboardScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         // implementing PageView Widget for Onboard intro
-        child: Container(
-          height: Get.mediaQuery.size.height,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                height: Get.mediaQuery.size.height / 1.40,
-                child: PageView(
-                  allowImplicitScrolling: true,
-                  scrollDirection: Axis.horizontal,
-                  controller: onboardcontroller.pageController,
-                  children: [
-                    intro_1(),
-                    intro_2(),
-                    intro_3(),
-                  ],
-                  onPageChanged: (value) {
-                    onboardcontroller.currentIndex.value = value;
-                  },
+        child: SingleChildScrollView(
+          child: Container(
+            // height: Get.mediaQuery.size.height,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  height: Get.mediaQuery.size.height / 1.40,
+                  child: PageView(
+                    allowImplicitScrolling: true,
+                    scrollDirection: Axis.horizontal,
+                    controller: onboardcontroller.pageController,
+                    children: [
+                      intro_1(),
+                      intro_2(),
+                      intro_3(),
+                    ],
+                    onPageChanged: (value) {
+                      onboardcontroller.currentIndex.value = value;
+                    },
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Container(
+                Container(
                   // height: Get.height / 1.5,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 20),
+                        horizontal: 30, vertical: 10),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         OutlinedButton(
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            backgroundColor: MaterialStateProperty.all(
+                                const Color(0xff292D32)),
+                          ),
                           onPressed: () {},
-                          child: const Padding(
-                            padding: EdgeInsets.all(18.0),
-                            child: Text('Register'),
+                          child: Padding(
+                            padding: const EdgeInsets.all(14.0),
+                            child: Text(
+                              'Register',
+                              style: GoogleFonts.poppins(
+                                  fontSize: 18, color: Colors.white),
+                            ),
                           ),
                         ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         OutlinedButton(
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            backgroundColor: MaterialStateProperty.all(
+                                const Color(0xff292D32)),
+                          ),
                           onPressed: () {},
-                          child: const Padding(
-                            padding: EdgeInsets.all(18.0),
-                            child: Text('Already have an account'),
+                          child: Padding(
+                            padding: const EdgeInsets.all(14.0),
+                            child: Text(
+                              'Already have an account',
+                              style: GoogleFonts.poppins(
+                                  fontSize: 18, color: Colors.white),
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

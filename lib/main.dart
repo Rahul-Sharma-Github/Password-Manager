@@ -24,6 +24,7 @@ class MainApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: 'Password Manager',
       initialRoute: '/',
+      theme: ThemeData(primaryColor: const Color(0xff292D32)),
       home: OnboardScreen(),
     );
   }
