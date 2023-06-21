@@ -18,52 +18,59 @@ class OnboardScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         // implementing PageView Widget for Onboard intro
-        child: Column(
-          children: [
-            Container(
-              height: Get.height / 1.35,
-              child: PageView(
-                allowImplicitScrolling: true,
-                scrollDirection: Axis.horizontal,
-                controller: onboardcontroller.pageController,
-                children: [
-                  intro_1(),
-                  intro_2(),
-                  intro_3(),
-                ],
-                onPageChanged: (value) {
-                  onboardcontroller.currentIndex.value = value;
-                },
+        child: Container(
+          height: Get.mediaQuery.size.height,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                height: Get.mediaQuery.size.height / 1.40,
+                child: PageView(
+                  allowImplicitScrolling: true,
+                  scrollDirection: Axis.horizontal,
+                  controller: onboardcontroller.pageController,
+                  children: [
+                    intro_1(),
+                    intro_2(),
+                    intro_3(),
+                  ],
+                  onPageChanged: (value) {
+                    onboardcontroller.currentIndex.value = value;
+                  },
+                ),
               ),
-            ),
-            Expanded(
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      OutlinedButton(
-                        onPressed: () {},
-                        child: const Padding(
-                          padding: EdgeInsets.all(18.0),
-                          child: Text('Register'),
+              Expanded(
+                child: Container(
+                  // height: Get.height / 1.5,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 20),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        OutlinedButton(
+                          onPressed: () {},
+                          child: const Padding(
+                            padding: EdgeInsets.all(18.0),
+                            child: Text('Register'),
+                          ),
                         ),
-                      ),
-                      OutlinedButton(
-                        onPressed: () {},
-                        child: const Padding(
-                          padding: EdgeInsets.all(18.0),
-                          child: Text('Already have an account'),
+                        OutlinedButton(
+                          onPressed: () {},
+                          child: const Padding(
+                            padding: EdgeInsets.all(18.0),
+                            child: Text('Already have an account'),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
