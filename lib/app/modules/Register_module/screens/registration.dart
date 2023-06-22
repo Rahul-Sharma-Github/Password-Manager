@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:password_manager/app/modules/Register_module/controller/registration_controller.dart';
 
+import '../../verification_module/screens/verification.dart';
+
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({super.key});
 
@@ -315,7 +317,9 @@ class _RegistrationPageState extends State<RegistrationPage>
                           backgroundColor:
                               MaterialStateProperty.all(Colors.black),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => const VerificationPage());
+                        },
                         child: const Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 25, vertical: 15),
