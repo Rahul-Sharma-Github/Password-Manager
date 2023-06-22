@@ -18,7 +18,8 @@ class _RegistrationPageState extends State<RegistrationPage>
   late TabController tabController;
   var registerController = Get.put(RegistrationController());
 
-  final formKey = GlobalKey<FormState>();
+  final formKeyRegister = GlobalKey<FormState>();
+  final formKeyLogin = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -167,7 +168,7 @@ class _RegistrationPageState extends State<RegistrationPage>
                                         horizontal: 15, vertical: 15),
                                     child: Container(
                                       child: Form(
-                                        key: formKey,
+                                        key: formKeyRegister,
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
@@ -258,7 +259,7 @@ class _RegistrationPageState extends State<RegistrationPage>
                                         horizontal: 15, vertical: 15),
                                     child: Container(
                                       child: Form(
-                                        key: formKey,
+                                        key: formKeyLogin,
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
