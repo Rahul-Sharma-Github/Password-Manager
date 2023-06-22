@@ -7,6 +7,7 @@ import 'package:password_manager/app/modules/onboard_module/controller/onboard_c
 import 'package:password_manager/app/modules/onboard_module/screens/widgets/intro_2.dart';
 import 'package:password_manager/app/modules/onboard_module/screens/widgets/intro_3.dart';
 
+import '../../Register_module/screens/registration.dart';
 import 'widgets/intro_1.dart';
 
 class OnboardScreen extends StatelessWidget {
@@ -62,7 +63,7 @@ class OnboardScreen extends StatelessWidget {
                                 const Color(0xff292D32)),
                           ),
                           onPressed: () {
-                            Get.to();
+                            Get.to(() => const RegistrationPage());
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(14.0),
