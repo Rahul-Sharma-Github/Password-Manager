@@ -21,7 +21,6 @@ class OnboardScreen extends StatelessWidget {
         // implementing PageView Widget for Onboard intro
         child: SingleChildScrollView(
           child: Container(
-            // height: Get.mediaQuery.size.height,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -41,8 +40,9 @@ class OnboardScreen extends StatelessWidget {
                     },
                   ),
                 ),
+
+                // Register / Login Buttons
                 Container(
-                  // height: Get.height / 1.5,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 10),
@@ -61,7 +61,9 @@ class OnboardScreen extends StatelessWidget {
                             backgroundColor: MaterialStateProperty.all(
                                 const Color(0xff292D32)),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to();
+                          },
                           child: Padding(
                             padding: const EdgeInsets.all(14.0),
                             child: Text(
