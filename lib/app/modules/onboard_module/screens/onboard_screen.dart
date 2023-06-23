@@ -7,6 +7,7 @@ import 'package:password_manager/app/modules/onboard_module/controller/onboard_c
 import 'package:password_manager/app/modules/onboard_module/screens/widgets/intro_2.dart';
 import 'package:password_manager/app/modules/onboard_module/screens/widgets/intro_3.dart';
 
+import '../../Register_module/controller/registration_controller.dart';
 import '../../Register_module/screens/registration.dart';
 import 'widgets/intro_1.dart';
 
@@ -14,6 +15,8 @@ class OnboardScreen extends StatelessWidget {
   OnboardScreen({super.key});
 
   final OnboardController onboardcontroller = Get.put(OnboardController());
+  final RegistrationController registerController =
+      Get.put(RegistrationController());
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +66,8 @@ class OnboardScreen extends StatelessWidget {
                                 const Color(0xff292D32)),
                           ),
                           onPressed: () {
+                            registerController.currentSelectedTabValue.value =
+                                0;
                             Get.to(() => const RegistrationPage());
                           },
                           child: Padding(
@@ -88,6 +93,8 @@ class OnboardScreen extends StatelessWidget {
                                 const Color(0xff292D32)),
                           ),
                           onPressed: () {
+                            registerController.currentSelectedTabValue.value =
+                                1;
                             Get.to(() => const RegistrationPage());
                           },
                           child: Padding(
