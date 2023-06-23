@@ -26,6 +26,7 @@ class _RegistrationPageState extends State<RegistrationPage>
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
+
     super.initState();
   }
 

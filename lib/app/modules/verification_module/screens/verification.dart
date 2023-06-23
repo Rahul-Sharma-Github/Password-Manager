@@ -6,8 +6,35 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:pinput/pinput.dart';
 
-class VerificationPage extends StatelessWidget {
+class VerificationPage extends StatefulWidget {
   const VerificationPage({super.key});
+
+  @override
+  State<VerificationPage> createState() => _VerificationPageState();
+}
+
+class _VerificationPageState extends State<VerificationPage> {
+  // some pinput objects
+
+  // default theme
+  static final defaultPinTheme = PinTheme(
+    width: 56,
+    height: 56,
+    textStyle: const TextStyle(
+        fontSize: 20,
+        color: Color.fromRGBO(30, 60, 87, 1),
+        fontWeight: FontWeight.w600),
+    decoration: BoxDecoration(
+      border: Border.all(color: const Color.fromARGB(255, 185, 172, 177)),
+      borderRadius: BorderRadius.circular(20),
+    ),
+  );
+
+  // focused theme
+  static final focusedPinTheme = defaultPinTheme.copyDecorationWith(
+    border: Border.all(color: const Color(0xff292D32)),
+    borderRadius: BorderRadius.circular(8),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -79,17 +106,18 @@ class VerificationPage extends StatelessWidget {
               // section = 2
               // middle [ tab bar , TextFormFields  ]
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: Container(
                   decoration: BoxDecoration(
                     border: Border.all(width: 1),
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.symmetric(vertical: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -102,10 +130,63 @@ class VerificationPage extends StatelessWidget {
                           ],
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Pinput(
+                              defaultPinTheme: defaultPinTheme,
+                              focusedPinTheme: focusedPinTheme,
+                              pinputAutovalidateMode:
+                                  PinputAutovalidateMode.onSubmit,
+                              showCursor: true,
+                              keyboardType: TextInputType.phone,
+                            )
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
               ),
+              // section = 3
+              // middle [ Continue button  ]
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 40),
+                child: Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            const Color(0xff292D32),
+                          ),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 60, vertical: 15),
+                          child: Text(
+                            'Continue',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),

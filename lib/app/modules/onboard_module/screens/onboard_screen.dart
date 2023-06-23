@@ -87,7 +87,9 @@ class OnboardScreen extends StatelessWidget {
                             backgroundColor: MaterialStateProperty.all(
                                 const Color(0xff292D32)),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => const RegistrationPage());
+                          },
                           child: Padding(
                             padding: const EdgeInsets.all(14.0),
                             child: Text(
