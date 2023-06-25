@@ -36,9 +36,11 @@ class _HomePageState extends State<HomePage> {
             size: 32,
           ),
         ),
-        title: const Text(
-          'Passwords',
-          style: TextStyle(color: Colors.black),
+        title: Obx(
+          () => Text(
+            homeController.appBarTitle.value,
+            style: const TextStyle(color: Colors.black),
+          ),
         ),
         centerTitle: true,
         actions: const [
