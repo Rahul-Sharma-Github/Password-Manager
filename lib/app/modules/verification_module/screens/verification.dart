@@ -2,9 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:pinput/pinput.dart';
+
+import '../../home_module/screens/home_page.dart';
 
 class VerificationPage extends StatefulWidget {
   const VerificationPage({super.key});
@@ -171,7 +174,9 @@ class _VerificationPageState extends State<VerificationPage> {
                             ),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => const HomePage());
+                        },
                         child: const Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 60, vertical: 15),
