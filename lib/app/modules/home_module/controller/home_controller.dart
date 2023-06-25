@@ -23,4 +23,24 @@ class HomeController extends GetxController {
         appBarTitle.value = 'Home';
     }
   }
+
+  var isSyncSwitchOn = true.obs;
+
+  void syncSwitchOnOff() {
+    if (isSyncSwitchOn.value == true) {
+      isSyncSwitchOn.value = false;
+    } else {
+      isSyncSwitchOn.value = true;
+    }
+  }
+
+  var isAutofillSwitchOn = true.obs;
+
+  void autofillSwitchOnOff() {
+    if (isAutofillSwitchOn.value == true) {
+      isAutofillSwitchOn.value = false;
+    } else {
+      isAutofillSwitchOn.value = true;
+    }
+  }
 }

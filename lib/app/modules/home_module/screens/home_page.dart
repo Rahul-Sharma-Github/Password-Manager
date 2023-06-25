@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     const HomeWidget(),
     const Text('Analysis'),
     const Text('Search'),
-    const Text('Setting'),
+    const SettingWidget(),
   ];
 
   @override
@@ -199,6 +199,185 @@ class _HomeWidgetState extends State<HomeWidget> {
         separatorBuilder: (context, index) => const SizedBox(height: 10),
         sectionSeparatorBuilder: (context, section) =>
             const SizedBox(height: 10),
+      ),
+    );
+  }
+}
+
+// Setting Widget
+class SettingWidget extends StatefulWidget {
+  const SettingWidget({super.key});
+
+  @override
+  State<SettingWidget> createState() => _SettingWidgetState();
+}
+
+class _SettingWidgetState extends State<SettingWidget> {
+  HomeController homeController = Get.put(HomeController());
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                      child: Text(
+                        'Profile',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      size: 28,
+                    ),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                      child: Text(
+                        'Permissions',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      size: 28,
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                      child: Text(
+                        'Sync',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    Obx(() => Switch.adaptive(
+                          value: homeController.isSyncSwitchOn.value,
+                          onChanged: (value) {
+                            homeController.syncSwitchOnOff();
+                          },
+                        )),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                      child: Text(
+                        'Autofill',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    Obx(() => Switch.adaptive(
+                          value: homeController.isAutofillSwitchOn.value,
+                          onChanged: (value) {
+                            homeController.autofillSwitchOnOff();
+                          },
+                        )),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                      child: Text(
+                        'About',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      size: 28,
+                    ),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                      child: Text(
+                        'Help',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      size: 28,
+                    ),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                      child: Text(
+                        'Version',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    Text(
+                      '1.2.2',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
