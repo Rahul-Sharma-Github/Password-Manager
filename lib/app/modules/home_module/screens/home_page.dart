@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../profile_module/screens/profile_page.dart';
 import '../controller/home_controller.dart';
 import 'package:group_list_view/group_list_view.dart';
 
@@ -28,12 +29,17 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         forceMaterialTransparency: true,
-        leading: const Padding(
-          padding: EdgeInsets.only(left: 10),
-          child: Icon(
-            Icons.person_outline_rounded,
-            color: Colors.black,
-            size: 32,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: InkWell(
+            onTap: () {
+              Get.to(() => const ProfilePage());
+            },
+            child: const Icon(
+              Icons.person_outline_rounded,
+              color: Colors.black,
+              size: 32,
+            ),
           ),
         ),
         title: Obx(
@@ -224,13 +230,13 @@ class _SettingWidgetState extends State<SettingWidget> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Padding(
+                    const Padding(
                       padding:
                           EdgeInsets.symmetric(vertical: 15, horizontal: 10),
                       child: Text(
@@ -238,9 +244,14 @@ class _SettingWidgetState extends State<SettingWidget> {
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
-                    Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      size: 28,
+                    InkWell(
+                      onTap: () {
+                        Get.to(() => const ProfilePage());
+                      },
+                      child: const Icon(
+                        Icons.arrow_forward_ios_outlined,
+                        size: 28,
+                      ),
                     ),
                   ],
                 ),
