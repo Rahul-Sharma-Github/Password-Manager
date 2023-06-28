@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../new_record_module/screens/new_record_page.dart';
 import '../../profile_module/screens/profile_page.dart';
 import '../controller/home_controller.dart';
 import 'package:group_list_view/group_list_view.dart';
@@ -49,13 +50,18 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         centerTitle: true,
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 10),
-            child: Icon(
-              Icons.add,
-              color: Colors.black,
-              size: 32,
+            padding: const EdgeInsets.only(right: 10),
+            child: InkWell(
+              onTap: () {
+                Get.to(() => const NewRecordPage());
+              },
+              child: const Icon(
+                Icons.add,
+                color: Colors.black,
+                size: 32,
+              ),
             ),
           )
         ],

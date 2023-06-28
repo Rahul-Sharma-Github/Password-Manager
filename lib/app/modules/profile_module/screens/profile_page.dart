@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:password_manager/app/modules/new_record_module/screens/new_record_page.dart';
 
 import '../../home_module/controller/home_controller.dart';
 
@@ -37,13 +38,18 @@ class _ProfilePageState extends State<ProfilePage> {
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 10),
-            child: Icon(
-              Icons.add,
-              color: Colors.black,
-              size: 32,
+            padding: const EdgeInsets.only(right: 10),
+            child: InkWell(
+              onTap: () {
+                Get.to(() => const NewRecordPage());
+              },
+              child: const Icon(
+                Icons.add,
+                color: Colors.black,
+                size: 32,
+              ),
             ),
           )
         ],
