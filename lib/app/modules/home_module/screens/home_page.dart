@@ -205,6 +205,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     'Password',
                     'Password copied !',
                     snackPosition: SnackPosition.BOTTOM,
+                    duration: const Duration(milliseconds: 800),
                   );
                 },
               ),
