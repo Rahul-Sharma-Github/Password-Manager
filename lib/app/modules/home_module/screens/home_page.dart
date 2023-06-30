@@ -193,11 +193,20 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
             trailing: CircleAvatar(
               backgroundColor: Colors.white,
-              child: Icon(
-                _elements.values.toList()[index.section][index.index]
-                    ['endicon'],
-                color: Colors.black,
-                size: 32,
+              child: InkWell(
+                child: Icon(
+                  _elements.values.toList()[index.section][index.index]
+                      ['endicon'],
+                  color: Colors.black,
+                  size: 32,
+                ),
+                onTap: () {
+                  Get.snackbar(
+                    'Password',
+                    'Password copied !',
+                    snackPosition: SnackPosition.BOTTOM,
+                  );
+                },
               ),
             ),
           );
