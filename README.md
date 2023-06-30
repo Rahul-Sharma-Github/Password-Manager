@@ -1,4 +1,4 @@
-# Password Manager App using GetX Microframework
+# Password Manager App using GetX Microframework/State manager
 
 # UI 
 ##
